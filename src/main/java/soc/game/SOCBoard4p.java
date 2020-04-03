@@ -62,7 +62,7 @@ public class SOCBoard4p extends SOCBoard
      * @since 2.0.00
      */
     public static final int[] makeNewBoard_diceNums_v1 =
-        { 5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11 };
+        { 4, 7, 6, 8, 7, 6, 3, 2, 2, 7, 2, 8, 3, 3, 4, 8, 4, 6 };
 
     /**
      * largest coordinate value for an edge, in the v1 encoding.
