@@ -5411,6 +5411,7 @@ public class SOCGame implements Serializable, Cloneable
               && (( ! isGameOptionSet("N7")) || (roundCount > getGameOptionIntValue("N7")));
 
         int die1, die2;
+        boolean validRoll;
         do
         {
 //            if (rand.nextBoolean())  // JM TEMP - try trigger bot discard-no-move-robber bug
@@ -5422,7 +5423,11 @@ public class SOCGame implements Serializable, Cloneable
 //            }
 
             currentDice = die1 + die2;
-        } while ((currentDice == 7) && ! okToRoll7);
+            
+            validRoll = (currentDice > 3) && (currentDice < 11);
+            validRoll &= ((currentDice != 7) || okToRoll7);
+            
+        } while (!validRoll);
 
         currentRoll.update(die1, die2);  // also clears currentRoll.cloth (SC_CLVI)
 
