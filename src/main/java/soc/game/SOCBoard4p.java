@@ -62,11 +62,7 @@ public class SOCBoard4p extends SOCBoard
      * @since 2.0.00
      */
     public static final int[] makeNewBoard_diceNums_v1 =
-<<<<<<< Updated upstream
-        { 5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11 };
-=======
         { 8, 6, 10, 5, 9, 8, 6, 10, 8, 5, 9, 6, 4, 5, 4, 4, 10, 9 };
->>>>>>> Stashed changes
 
     /**
      * largest coordinate value for an edge, in the v1 encoding.
