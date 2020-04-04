@@ -3624,10 +3624,10 @@ import javax.swing.JComponent;
                 // Get color from rarity, fill dice circle, outline with darker shade
                 {
                     int colorIdx;
-                    if (hnl < 7)
+                    if (hnl < 5)
                         colorIdx = hnl - 2;
                     else
-                        colorIdx = 12 - hnl;
+                        colorIdx = 8 - hnl;
                     Color cc = DICE_NUMBER_CIRCLE_COLORS[colorIdx];
 
                     g.setColor(cc);
@@ -3635,6 +3635,7 @@ import javax.swing.JComponent;
                     g.setColor(cc.darker().darker());
                     g.drawOval(x, y, dia, dia);
                 }
+                
 
                 final String numstr = Integer.toString(hnl);
                 x += (dia - (diceNumberCircleFM.stringWidth(numstr) - scaleToActual(1))) / 2;

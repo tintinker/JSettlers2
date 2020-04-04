@@ -1833,6 +1833,10 @@ public abstract class SOCBoard implements Serializable, Cloneable
         if ((hex < 0) || (hex >= numberLayout.length))
             return 0;
         int num = numberLayout[hex];
+        
+        if (num == 7) {
+        	System.out.println("7 FINALLY WORKS!!!");
+        }
 
         if (num < 0)
             return 0;

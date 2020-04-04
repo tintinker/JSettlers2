@@ -74,7 +74,7 @@ public class SOCBoardLayout extends SOCMessage
      * Map of dice rolls to values in {@link #numberLayout}. Formerly in SOCBoard.
      * @since 1.1.08
      */
-    private static final int[] boardNum2sentNum = { -1, -1, 0, 1, 2, 3, 4, -1, 5, 6, 7, 8, 9 };
+    private static final int[] boardNum2sentNum = { -1, -1, 0, 1, 2, -1, 3, 4, 5};
 
     /**
      * Map of values in {@link #numberLayout} to dice rolls:<pre>
@@ -92,7 +92,7 @@ public class SOCBoardLayout extends SOCMessage
      * Formerly in SOCBoard.
      * @since 1.1.08
      */
-    private static final int[] sentNum2BoardNum = { 2, 3, 4, 5, 6, 8, 9, 10, 11, 12 };
+    private static final int[] sentNum2BoardNum = { 2, 3, 4, 6, 7, 8};
 
     /**
      * Hex land type numbers sent over the network.

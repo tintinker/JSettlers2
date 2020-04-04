@@ -5406,6 +5406,8 @@ public class SOCGame implements Serializable, Cloneable
         // N7C: Roll no 7s until a city is built.
         // N7: Roll no 7s during first # rounds.
         //     Use > not >= because roundCount includes current round
+    	int forbiddenNumber = 5;
+    	
         final boolean okToRoll7
             = ((isGameOptionSet("N7C")) ? hasBuiltCity : true)
               && (( ! isGameOptionSet("N7")) || (roundCount > getGameOptionIntValue("N7")));
@@ -5417,12 +5419,12 @@ public class SOCGame implements Serializable, Cloneable
 //            {
 //                die1 = 0; die2 = 7;
 //            } else {
-            die1 = Math.abs(rand.nextInt() % 6) + 1;
-            die2 = Math.abs(rand.nextInt() % 6) + 1;
+            die1 = Math.abs(rand.nextInt() % 4) + 1;
+            die2 = Math.abs(rand.nextInt() % 4) + 1;
 //            }
 
             currentDice = die1 + die2;
-        } while ((currentDice == 7) && ! okToRoll7);
+        } while ((currentDice == forbiddenNumber) && ! okToRoll7);
 
         currentRoll.update(die1, die2);  // also clears currentRoll.cloth (SC_CLVI)
 
@@ -5453,7 +5455,7 @@ public class SOCGame implements Serializable, Cloneable
                     final SOCPlayer plGold = currentRoll.sc_piri_fleetAttackVictim;  // won't be null
                     plGold.setNeedToPickGoldHexResources(1 + plGold.getNeedToPickGoldHexResources());
 
-                    if (currentDice == 7)
+                    if (currentDice == forbiddenNumber)
                     {
                         // Need to set this state only on 7, to pick _before_ discards.  On any other
                         // dice roll, the free pick here will be combined with the usual roll-result gold picks.
@@ -5475,7 +5477,7 @@ public class SOCGame implements Serializable, Cloneable
         /**
          * handle the seven case
          */
-        if (currentDice == 7)
+        if (currentDice == forbiddenNumber)
         {
             rollDice_update7gameState();
         }
