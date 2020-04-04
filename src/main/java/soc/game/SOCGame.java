@@ -5406,23 +5406,18 @@ public class SOCGame implements Serializable, Cloneable
         // N7C: Roll no 7s until a city is built.
         // N7: Roll no 7s during first # rounds.
         //     Use > not >= because roundCount includes current round
-        final boolean okToRoll7
+        final boolean okToRoll5
             = ((isGameOptionSet("N7C")) ? hasBuiltCity : true)
               && (( ! isGameOptionSet("N7")) || (roundCount > getGameOptionIntValue("N7")));
 
         int die1, die2;
         do
         {
-//            if (rand.nextBoolean())  // JM TEMP - try trigger bot discard-no-move-robber bug
-//            {
-//                die1 = 0; die2 = 7;
-//            } else {
-            die1 = Math.abs(rand.nextInt() % 6) + 1;
-            die2 = Math.abs(rand.nextInt() % 6) + 1;
-//            }
+            die1 = Math.abs(rand.nextInt() % 4) + 1;
+            die2 = Math.abs(rand.nextInt() % 4) + 1;
 
             currentDice = die1 + die2;
-        } while ((currentDice == 7) && ! okToRoll7);
+        } while ((currentDice == 5) && ! okToRoll5);
 
         currentRoll.update(die1, die2);  // also clears currentRoll.cloth (SC_CLVI)
 
